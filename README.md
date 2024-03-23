@@ -25,6 +25,96 @@ To install and set up cuda and cudnn follow this guide:
 For more information about our research project access the paper here: <a href="https://github.com/Alberto-00/Detection-signature-cancer/blob/main/exam/Bioinformatica_Paper_CancerDetection.pdf">our paper</a><br>
 To view the other papers that have contributed to the cancer research study and on which we have commented follow this link: <a href="https://github.com/Alberto-00/Detection-signature-cancer/tree/main/papers">other papers</a><br>
 
+## Technical informations - main.py
+In this section we introduce technical informations and installing guides!
+
+### Download Dataset
+<ul>
+  <li>Download from Google Drive all the files in the folder <code>Dataset</code>: <a href="https://drive.google.com/drive/folders/1sE_4XjG516zfMvnWwfQ3gR5h7_4NlvjL?usp=sharing">LINK</a>;</li>
+  <li>Files should be downloaded within a folder with the name <code>dataset</code>;</li>
+  <li>Copy the dataset folder and paste it inside the project in this way: <code>/Detection-signature-cancer/code/dataset</code></li>
+</ul>
+
+### Config Path
+In this script there are some path that we are going to describe now:<br>
+
+Dataset
+<ol style="list-style-type: numbers;">
+  <li><code>dataset_path</code>: the dataset that we want to use (<code>SNP_DEL_INS_CNA_mutations_and_variants</code> has two);</li>
+  <li><code>encoded_path</code>: the encoded of the dataset;</li>
+</ol>
+
+Classification
+<ol style="list-style-type: numbers;">  
+  <li><code>model_path</code>: where the model will be saved or uploaded;</li>
+  <li><code>risultati_classification</code>: results of the classification;</li>
+</ol>
+
+Siamese
+<ol style="list-style-type: numbers;">  
+  <li><code>siamese_path</code>: where the model of the siamese network will be saved or uploaded;</li>
+  <li><code>risultati_siamese</code>: results of the siamese network;</li>
+</ol>
+<br>
+
+If you want to change the dataset to use either <code>0030</code> or <code>0005</code> (read the paper for the meanings) you only 
+need to edit the string containing <code>0030</code> or <code>0005</code> and replace it with one of the two.
+
+For example:
+```
+dataset_path = ("dataset/data_mrna/SNP_DEL_INS_CNA_mutations_and_variants/"
+                    "data_mrna_v2_seq_rsem_trasposto_normalizzato_deviazione_0030_dataPatient_mutations_and_variants.csv")      
+```
+
+Becomes
+
+```
+dataset_path = ("dataset/data_mrna/SNP_DEL_INS_CNA_mutations_and_variants/"
+                    "data_mrna_v2_seq_rsem_trasposto_normalizzato_deviazione_0005_dataPatient_mutations_and_variants.csv")      
+```
+
+<br>
+
+Or
+```
+model_path = "models/0030/classification/espressione_genomica_con_varianti_2LAYER/"
+```
+
+Becomes
+
+```
+model_path = "models/0005/classification/espressione_genomica_con_varianti_2LAYER/"
+```
+
+### Boolean Variables
+Always in the <code>main.py</code> script you can set some variables:
+
+<ul>
+  <li><code>only_variant = False</code>: if you use the dataset that contains only variations in gene mutations set this on <code>True</code>;</li>
+  <li><code>data_encoded = False</code>: allows to generate the encoded of the dataset (if this is the first time you run the code leave the default value) 
+    <ul>
+      <li><code>False</code>: encoded to be generated;</li>
+      <li><code>True</code>code>: load an encoded;</li>
+    </ul>
+  </li>
+  <li><code>classification = True</code>: run the classification;</li>
+  <li><code>siamese_net = True</code>: run the siamese network;</li>
+  <li><code>siamese_variants = True</code>: if you use the dataset that contains the variations in gene mutations set this on <code>True</code>;</li>
+</ul>
+<br>
+
+The Siamese Network can only be launched if it has a classification model already trained and saved. In the project the classification model has already been trained. 
+If you want to use the models in this project and not start experimenting again set the parameters in this way (example for <code>0030</code> dataset):
+```
+only_variant = False
+data_encoded = True
+classification = False
+siamese_net = True
+siamese_variants = True
+```
+
+To run the project run the <code>main.py</code> script.
+
 ## Author & Contacts 
 
 | Name | Description |
