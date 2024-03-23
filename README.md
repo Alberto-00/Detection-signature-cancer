@@ -94,7 +94,7 @@ Always in the <code>main.py</code> script you can set some variables:
   <li><code>data_encoded = False</code>: allows to generate the encoded of the dataset (if this is the first time you run the code leave the default value) 
     <ul>
       <li><code>False</code>: encoded to be generated;</li>
-      <li><code>True</code>code>: load an encoded;</li>
+      <li><code>True</code>: load an encoded;</li>
     </ul>
   </li>
   <li><code>classification = True</code>: run the classification;</li>
