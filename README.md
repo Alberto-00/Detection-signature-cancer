@@ -101,8 +101,18 @@ Always in the <code>main.py</code> script you can set some variables:
   <li><code>siamese_net = True</code>: run the siamese network;</li>
   <li><code>siamese_variants = True</code>: if you use the dataset that contains the variations in gene mutations set this on <code>True</code>;</li>
 </ul>
+<br>
 
-For experimentation leave defaut parameters. <br>
+The Siamese Network can only be launched if it has a classification model already trained and saved. In the project the classification model has already been trained. 
+If you want to use the models in this project and not start experimenting again set the parameters in this way (example for <code>0030</code> dataset):
+```
+only_variant = False
+data_encoded = True
+classification = False
+siamese_net = True
+siamese_variants = True
+```
+
 To run the project run the <code>main.py</code> script.
 
 ## Author & Contacts 
