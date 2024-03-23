@@ -55,7 +55,7 @@ Siamese
   <li><code>siamese_path</code>: where the model of the siamese network will be saved or uploaded;</li>
   <li><code>risultati_siamese</code>: results of the siamese network;</li>
 </ol>
-<br><br>
+<br>
 
 If you want to change the dataset to use either <code>0030</code> or <code>0005</code> (read the paper for the meanings) you only 
 need to edit the string containing <code>0030</code> or <code>0005</code> and replace it with one of the two.
