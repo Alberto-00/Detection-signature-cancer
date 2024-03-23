@@ -4,38 +4,32 @@ from tensorflow.keras.models import load_model
 
 if __name__ == "__main__":
     only_variant = False
-    data_encoded = True
-    classification = False
+    data_encoded = False
+    classification = True
     siamese_net = True
     siamese_variants = True
 
     ####################################################################################################################
     # DATA
-    dataset_path = ("/home/alberto/Documenti/GitHub/Detection-signature-cancer/code/dataset/data_mrna/"
-                    "SNP_DEL_INS_CNA_mutations_and_variants/"
+    dataset_path = ("dataset/data_mrna/SNP_DEL_INS_CNA_mutations_and_variants/"
                     "data_mrna_v2_seq_rsem_trasposto_normalizzato_deviazione_0030_dataPatient_mutations_and_variants.csv")
 
-    encoded_path = ("/home/alberto/Documenti/GitHub/Detection-signature-cancer/code/models/0030/classification/"
-                    "espressione_genomica_con_varianti_2LAYER/encoded-dataset.csv")
+    encoded_path = "models/0030/classification/espressione_genomica_con_varianti_2LAYER/encoded-dataset.csv"
 
     ####################################################################################################################
 
     # CLASSIFICATION
-    model_path = ("/home/alberto/Documenti/GitHub/Detection-signature-cancer/code/models/0030/classification/"
-                  "espressione_genomica_con_varianti_2LAYER/")
+    model_path = "models/0030/classification/espressione_genomica_con_varianti_2LAYER/"
 
-    risultati_classification = ("/home/alberto/Documenti/GitHub/Detection-signature-cancer/code/"
-                                "risultati/classification/0030/"
+    risultati_classification = ("risultati/classification/0030/"
                                 "classification_espressione_genomica_con_varianti_2LAYER.csv")
 
     ####################################################################################################################
 
     # SIAMESE
-    risultati_siamese = ("/home/alberto/Documenti/GitHub/Detection-signature-cancer/code/risultati/siamese/0030/"
-                         "siamese_espressione_genomica_con_varianti_2LAYER.txt")
+    siamese_path = "models/0030/siamese/espressione_genomica_con_varianti_2LAYER/"
 
-    siamese_model = ("/home/alberto/Documenti/GitHub/Detection-signature-cancer/code/models/0030/siamese/"
-                     "espressione_genomica_con_varianti_2LAYER/")
+    risultati_siamese = "risultati/siamese/0030/siamese_espressione_genomica_con_varianti_2LAYER.txt"
 
     ####################################################################################################################
 
@@ -54,5 +48,5 @@ if __name__ == "__main__":
         input_shape = (genes_len, 1)
 
         cancer_type = pd.DataFrame(y, columns=['CANCER_TYPE'])
-        siamese_network(siamese_model, risultati_siamese, dataset_df, model,
+        siamese_network(siamese_path, risultati_siamese, dataset_df, model,
                         input_shape, genes_len, cancer_type, siamese_variants)
